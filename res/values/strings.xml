@@ -9,6 +9,7 @@
     <string name="enter_weight">Enter Weight in Pounds</string>
     <string name="number_of_motors">Number of Motors</string>
     <string-array name="rotor_number">
+        <item name="octocopter">8</item>
         <item name="hexacopter">6</item>
         <item name="quadcopter">4</item>
         <item name="tricopter">3</item>

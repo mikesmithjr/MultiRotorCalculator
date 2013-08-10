@@ -4,10 +4,13 @@ import java.text.DecimalFormat;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Resources;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
+
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
@@ -52,6 +55,8 @@ public class MainActivity extends Activity {
         Button calculateButton = (Button) findViewById(R.id.button1);
         calculateButton.setOnClickListener(new OnClickListener() {
 			
+			private String INPUT_METHOD_SERVICE;
+
 			@Override
 			public void onClick(View v) {
 				EditText weightField = (EditText) findViewById(R.id.editText1);
@@ -71,6 +76,9 @@ public class MainActivity extends Activity {
 				TextView thrustAmnt = (TextView) findViewById(R.id.finalThrust);
 				thrustAmnt.setText(String.valueOf(thrustPerMtrAdj));
 				thrustAmnt.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+				
+				InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+				imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 			}
 		});
     }
